@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_user_klass
+  before_filter :ensure_owner
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
   def show

@@ -1,5 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :set_user_klass_assignment
+  before_filter :ensure_owner
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token, only: [:time]
 

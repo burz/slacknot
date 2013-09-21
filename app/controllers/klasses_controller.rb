@@ -1,5 +1,6 @@
 class KlassesController < ApplicationController
   before_action :set_user
+  before_filter :ensure_owner
   before_action :set_klass, only: [:show, :edit, :update, :destroy]
 
   def index

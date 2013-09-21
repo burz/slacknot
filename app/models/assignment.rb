@@ -12,7 +12,7 @@ class Assignment < ActiveRecord::Base
 
   def completed
     if problems.any?
-      problems.map { |p| p.completed ? 1 : 0 }.inject(:+) / problems.count * 100
+      100 * problems.map { |p| p.completed ? 1 : 0 }.inject(:+) / problems.count
     else
       100
     end
