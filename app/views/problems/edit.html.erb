@@ -59,17 +59,19 @@
 <% end %>
 
 <script>
-  var time = <%= @problem.time_elapsed.to_i * 1000 %>;
+  var time = <%= @problem.time_elapsed %>;
 
-  function to_format(dat)
+  function to_format(seconds)
   {
-    var d = new Date(dat);
+    var hours = Math.floor(seconds / 3600);
+    var minutes = Math.floor(seconds / 60 - hours * 60);
+    var seconds = Math.floor(seconds - (minutes * 60 + hours * 3600));
 
-    return [d.getHours(), d.getMinutes(), d.getSeconds()].join(':');
+    return [hours, minutes, seconds].join(':');
   }
 
   var every_second = window.setInterval(function () {
-    time += 1000;
+    time++;
     $('#time-elapsed').html(to_format(time));
   }, 1000);
 
