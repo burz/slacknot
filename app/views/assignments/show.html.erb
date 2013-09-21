@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @assignment.name %>
+</p>
+
+<p>
+  <strong>Assigned on:</strong>
+  <%= @assignment.assigned_on %>
+</p>
+
+<p>
+  <strong>Due on:</strong>
+  <%= @assignment.due_on %>
+</p>
+
+<p>
+  <strong>Percent completed:</strong>
+  <%= @assignment.percent_completed %>
+</p>
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

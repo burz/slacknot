@@ -1,11 +1,11 @@
 Slacknot::Application.routes.draw do
-  resources :klasses
+  root to: 'home#index'
 
   devise_for :users
 
-  root to: 'home#index'
-
   resources :users, only: [] do
-    resources :klasses
+    resources :klasses do
+      resources :assignments
+    end
   end
 end

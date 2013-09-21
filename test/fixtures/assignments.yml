@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  assigned_on: 2013-09-20
+  due_on: 2013-09-20
+  percent_completed: 1
+
+two:
+  name: MyString
+  assigned_on: 2013-09-20
+  due_on: 2013-09-20
+  percent_completed: 1
