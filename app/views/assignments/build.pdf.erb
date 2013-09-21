@@ -1,7 +1,7 @@
 \maketitle
 
 <% @problems.each do |problem| %>
-  \subsection*{<%= problem.prompt %>}
+  \subsection*{<%= LatexToPdf.escape_latex problem.prompt %>}
 
-  <%= problem.latex %>
+  <%= LatexToPdf.escape_latex problem.latex %>
 <% end %>

@@ -3,7 +3,10 @@ class Problem < ActiveRecord::Base
   has_many :time_intervals
 
   def time_elapsed
-    #default for now
-    Time.now
+    if time_intervals.any?
+      time_intervals.map { |t| t.start - t.end }.inject(:+)
+    else
+      Time.new 0
+    end
   end
 end

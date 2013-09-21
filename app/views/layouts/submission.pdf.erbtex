@@ -3,9 +3,9 @@
 \usepackage{amssymb}
 \usepackage[margin=1in]{geometry}
 
-\title{<%= @assignment.name %>}
+\title{<%= LatexToPdf.escape_latex @assignment.name %>}
 
-\author{<%= @user.email %>}
+\author{<%= LatexToPdf.escape_latex @user.email %>}
 
 \begin{document}
 
