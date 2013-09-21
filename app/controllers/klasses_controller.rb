@@ -4,7 +4,7 @@ class KlassesController < ApplicationController
   before_action :set_klass, only: [:show, :edit, :update, :destroy]
 
   def index
-    @klasses = Klass.all
+    @klasses = @user.klasses.all
   end
 
   def show

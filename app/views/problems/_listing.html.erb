@@ -1,9 +1,12 @@
+<style>
+  td a, td a:visited { color: white; }
+</style>
+
 <table>
   <thead>
     <tr>
       <th></th>
       <th>Time elapsed</th>
-      <th>Completed</th>
       <th></th>
       <th></th>
       <th></th>
@@ -12,10 +15,13 @@
 
   <tbody>
     <% @problems.each do |problem| %>
-      <tr>
-        <td>Problem number</td>
-        <td><%= time_hms problem.time_elapsed %></td>
-        <td><%= problem.completed %></td>
+      <% if problem.completed %>
+        <tr bgcolor="green">
+      <% else %>
+        <tr bgcolor="red">
+      <% end %>
+        <td><font color="white">Problem number</font></td>
+        <td><font color="white"><%= time_hms problem.time_elapsed %></font></td>
         <td>
           <%= link_to 'Show', user_klass_assignment_problem_path(
                 @user, @klass, @assignment, problem) %>
