@@ -1,0 +1,35 @@
+<h1>Listing problems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prompt</th>
+      <th>Text</th>
+      <th>Latex</th>
+      <th>Notes</th>
+      <th>Completed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @problems.each do |problem| %>
+      <tr>
+        <td><%= problem.prompt %></td>
+        <td><%= problem.text %></td>
+        <td><%= problem.latex %></td>
+        <td><%= problem.notes %></td>
+        <td><%= problem.completed %></td>
+        <td><%= link_to 'Show', problem %></td>
+        <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
+        <td><%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Problem', new_problem_path %>

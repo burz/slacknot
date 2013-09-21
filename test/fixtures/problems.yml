@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  prompt: MyText
+  text: MyText
+  latex: MyText
+  notes: MyText
+  completed: false
+
+two:
+  prompt: MyText
+  text: MyText
+  latex: MyText
+  notes: MyText
+  completed: false

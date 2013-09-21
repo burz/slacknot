@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prompt:</strong>
+  <%= @problem.prompt %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @problem.text %>
+</p>
+
+<p>
+  <strong>Latex:</strong>
+  <%= @problem.latex %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @problem.notes %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @problem.completed %>
+</p>
+
+<%= link_to 'Edit', edit_problem_path(@problem) %> |
+<%= link_to 'Back', problems_path %>
