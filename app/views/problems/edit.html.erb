@@ -58,6 +58,26 @@
   </div>
 <% end %>
 
+<script>
+  var time = <%= @problem.time_elapsed.to_i * 1000 %>;
+
+  function to_format(dat)
+  {
+    var d = new Date(dat);
+
+    return [d.getHours(), d.getMinutes(), d.getSeconds()].join(':');
+  }
+
+  var every_second = window.setInterval(function () {
+    time += 1000;
+    $('#time-elapsed').html(to_format(time));
+  }, 1000);
+
+  $('#time-elapsed').html(to_format(time));
+</script>
+
+<h3 id="time-elapsed"></h3>
+
 <div id="preview-frame" style="display: none; width: 750px;">
   <iframe id="preview-content" src="" style="width: 100%"></iframe>
 </div>
