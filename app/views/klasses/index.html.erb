@@ -14,9 +14,12 @@
     <% @klasses.each do |klass| %>
       <tr>
         <td><%= klass.name %></td>
-        <td><%= link_to 'Show', klass %></td>
-        <td><%= link_to 'Edit', edit_klass_path(klass) %></td>
-        <td><%= link_to 'Destroy', klass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_klass_path(@user, klass) %></td>
+        <td><%= link_to 'Edit', edit_user_klass_path(@user, klass) %></td>
+        <td>
+          <%= link_to 'Destroy', user_klass_path(@user, klass),
+                method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Klass', new_klass_path %>
+<%= link_to 'New Klass', new_user_klass_path(@user) %>

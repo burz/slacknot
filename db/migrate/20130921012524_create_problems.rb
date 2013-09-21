@@ -5,7 +5,7 @@ class CreateProblems < ActiveRecord::Migration
       t.text :text
       t.text :latex
       t.text :notes
-      t.boolean :completed
+      t.boolean :completed, default: false
 
       t.timestamps
     end

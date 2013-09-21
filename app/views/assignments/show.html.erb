@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @assignment.name %>
@@ -17,8 +15,10 @@
 
 <p>
   <strong>Percent completed:</strong>
-  <%= @assignment.percent_completed %>
+  <%= @assignment.percent_completed %> %
 </p>
 
-<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-<%= link_to 'Back', assignments_path %>
+<%= link_to 'Add problem',
+      new_user_klass_assignment_problem_path(@user, @klass, @assignment) %> |
+<%= link_to 'Edit', edit_user_klass_assignment_path(@user, @klass, @assignment) %> |
+<%= link_to 'Back', user_klass_assignments_path(@user, @klass) %>

@@ -22,9 +22,19 @@
         <td><%= problem.latex %></td>
         <td><%= problem.notes %></td>
         <td><%= problem.completed %></td>
-        <td><%= link_to 'Show', problem %></td>
-        <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-        <td><%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', user_klass_assignment_problem_path(
+                @user, @klass, @assignment, problem) %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_user_klass_assignment_problem_path(
+                @user, @klass, @assignment, problem) %>
+        </td>
+        <td>
+          <%= link_to 'Destroy', user_klass_assignment_problem_path(
+                  @user, @klass, @assignment, problem),
+                method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +42,5 @@
 
 <br>
 
-<%= link_to 'New Problem', new_problem_path %>
+<%= link_to 'New Problem', new_user_klass_assignment_problem_path(
+      @user, @klass, @assignment) %>

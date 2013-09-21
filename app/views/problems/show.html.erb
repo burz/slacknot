@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Prompt:</strong>
   <%= @problem.prompt %>
@@ -25,5 +23,6 @@
   <%= @problem.completed %>
 </p>
 
-<%= link_to 'Edit', edit_problem_path(@problem) %> |
-<%= link_to 'Back', problems_path %>
+<%= link_to 'Edit', edit_user_klass_assignment_problem_path(
+      @user, @klass, @assignment, @problem) %> |
+<%= link_to 'Back', user_klass_assignment_problems_path(@user, @klass, @assignment) %>

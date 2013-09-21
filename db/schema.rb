@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20130921012809) do
     t.text     "text"
     t.text     "latex"
     t.text     "notes"
-    t.boolean  "completed"
+    t.boolean  "completed",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 20130921012809) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

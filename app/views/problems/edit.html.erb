@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @problem %> |
-<%= link_to 'Back', problems_path %>
+<%= link_to 'Show', user_klass_assignment_problem_path(
+      @user, @klass, @assignment, @problem) %> |
+<%= link_to 'Back', user_klass_assignment_problems_path(@user, @klass, @assignment) %>
