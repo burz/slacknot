@@ -18,8 +18,13 @@ class ProblemsController < ApplicationController
   end
 
   def time
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    puts JSON.parse(request.body.read)
+    @problem = @assignment.problems.find params[:problem_id]
+
+    results = JSON.parse(request.body.read)
+
+    @problem.time_intervals.create start: Time.at(results['start']),
+                                   end: Time.at(results['end'])
+
     render nothing: true
   end
 

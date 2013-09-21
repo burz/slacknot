@@ -2,33 +2,30 @@ var time_interval = {
   start: null,
   end: null,
   init: function () {
-    this.start = new Date().getTime();
+    this.start = new Date().getTime() / 1000;
   },
   send_results: function (url) {
-    this.end = new Date().getTime();
+    this.end = new Date().getTime() / 1000;
 
-    var data = {
+    var data = JSON.stringify({
       'start': this.start,
       'end': this.end
-    };
+    });
 
-    var xhr = new XMLHttpRequest();
-
-    xhr.open('POST', url);
-    xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    xhr.send(JSON.stringify(data));
+    $.ajax({
+      url: url,
+      type: 'post',
+      data: data
+    });
   }
 };
 
 function start_time_interval(url)
 {
-  send = function () {
+  window.onbeforeunload = function () {
     time_interval.send_results(url);
+    return '';
   };
-
-  window.onbeforeunload = send;
-
-  document.addEventListener('page:before-change', send);
 
   time_interval.init();
 }
