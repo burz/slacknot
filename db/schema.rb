@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130921011152) do
+ActiveRecord::Schema.define(version: 20130921012809) do
+
+  create_table "assignments", force: true do |t|
+    t.string   "name"
+    t.date     "assigned_on"
+    t.date     "due_on"
+    t.integer  "percent_completed"
+    t.integer  "klasses_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assignments", ["klasses_id"], name: "index_assignments_on_klasses_id"
 
   create_table "klasses", force: true do |t|
     t.string   "name"
@@ -21,6 +33,23 @@ ActiveRecord::Schema.define(version: 20130921011152) do
   end
 
   add_index "klasses", ["user_id"], name: "index_klasses_on_user_id"
+
+  create_table "problems", force: true do |t|
+    t.text     "prompt"
+    t.text     "text"
+    t.text     "latex"
+    t.text     "notes"
+    t.boolean  "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "time_intervals", force: true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
