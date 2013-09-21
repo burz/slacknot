@@ -8,29 +8,30 @@
   </head>
   <body>
 
-    <div id="header">
-      <div id="site-title">
-        <h1>
-          <%= link_to 'Slacknot!', root_path %>
-        </h1>
-      </div>
-
-      <div id="user-status" align="right">
-        <% if user_signed_in? %>
-          Welcome <%= link_to current_user.email, user_klasses_path(current_user) %>!
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Sign in', new_user_session_path %>
-          or
-          <%= link_to 'Sign up', new_user_registration_path %>
-        <% end %>
-      </div>
+    <div class="site-title">
+      <h1>
+        <%= link_to 'Slacknot!', root_path %>
+      </h1>
     </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="user-status" align="right">
+      <% if user_signed_in? %>
+        Welcome <%= link_to current_user.email, user_klasses_path(current_user) %>!
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path %>
+        or
+        <%= link_to 'Sign up', new_user_registration_path %>
+      <% end %>
+    </div>
 
-    <%= yield %>
+    <div class="site-header"></div>
 
+    <div class="site-content">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

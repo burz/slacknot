@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+.site-title { position: absolute; top: 0; left: 5px; right: 20%; }
+.site-title h1 { font-size: 300%; }
+.site-content { position: absolute; top: 50px; }
