@@ -1,12 +1,8 @@
-<h1>Listing problems</h1>
-
 <table>
   <thead>
     <tr>
-      <th>Prompt</th>
-      <th>Text</th>
-      <th>Latex</th>
-      <th>Notes</th>
+      <th></th>
+      <th>Time Elapsed</th>
       <th>Completed</th>
       <th></th>
       <th></th>
@@ -17,10 +13,8 @@
   <tbody>
     <% @problems.each do |problem| %>
       <tr>
-        <td><%= problem.prompt %></td>
-        <td><%= problem.text %></td>
-        <td><%= problem.latex %></td>
-        <td><%= problem.notes %></td>
+        <td>Problem number</td>
+        <td><%= problem.time_elapsed.strftime '%H:%M:%S' %></td>
         <td><%= problem.completed %></td>
         <td>
           <%= link_to 'Show', user_klass_assignment_problem_path(
@@ -39,8 +33,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Problem', new_user_klass_assignment_problem_path(
-      @user, @klass, @assignment) %>

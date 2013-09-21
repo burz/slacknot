@@ -4,6 +4,8 @@ class CreateTimeIntervals < ActiveRecord::Migration
       t.datetime :start
       t.datetime :end
 
+      t.references :problem, index: true
+
       t.timestamps
     end
   end

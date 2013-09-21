@@ -13,12 +13,11 @@
   <%= @assignment.due_on %>
 </p>
 
-<p>
-  <strong>Percent completed:</strong>
-  <%= @assignment.percent_completed %> %
-</p>
+<h2>Problems</h2>
+
+<%= render 'problems/listing' %>
 
 <%= link_to 'Add problem',
       new_user_klass_assignment_problem_path(@user, @klass, @assignment) %> |
 <%= link_to 'Edit', edit_user_klass_assignment_path(@user, @klass, @assignment) %> |
-<%= link_to 'Back', user_klass_assignments_path(@user, @klass) %>
+<%= link_to 'Back', user_klass_path(@user, @klass) %>

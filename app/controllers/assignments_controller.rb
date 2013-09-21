@@ -2,11 +2,8 @@ class AssignmentsController < ApplicationController
   before_action :set_user_klass
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @assignments = Assignment.all
-  end
-
   def show
+    @problems = @assignment.problems
   end
 
   def new
@@ -17,7 +14,7 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    @assignment = Assignment.new(assignment_params)
+    @assignment = @klass.assignments.new assignment_params
 
     respond_to do |format|
       if @assignment.save

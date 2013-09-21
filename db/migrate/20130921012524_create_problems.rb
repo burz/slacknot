@@ -7,6 +7,8 @@ class CreateProblems < ActiveRecord::Migration
       t.text :notes
       t.boolean :completed, default: false
 
+      t.references :assignment, index: true
+
       t.timestamps
     end
   end

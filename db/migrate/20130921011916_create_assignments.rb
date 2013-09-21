@@ -4,9 +4,8 @@ class CreateAssignments < ActiveRecord::Migration
       t.string :name
       t.date :assigned_on
       t.date :due_on
-      t.integer :percent_completed
 
-      t.references :klasses, index: true
+      t.references :klass, index: true
 
       t.timestamps
     end

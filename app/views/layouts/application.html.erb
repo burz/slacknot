@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Slacknot</title>
+    <title>Slacknot!</title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -9,19 +9,21 @@
   <body>
 
     <div id="header">
+      <div id="site-title">
+        <h1>
+          <%= link_to 'Slacknot!', root_path %>
+        </h1>
+      </div>
+
       <div id="user-status" align="right">
         <% if user_signed_in? %>
-          Welcome <%= current_user.email %>!
+          Welcome <%= link_to current_user.email, user_klasses_path(current_user) %>!
           <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to 'Sign in', new_user_session_path %>
           or
           <%= link_to 'Sign up', new_user_registration_path %>
         <% end %>
-      </div>
-
-      <div id="site-title">
-        <h1>Slacknot!</h1>
       </div>
     </div>
 

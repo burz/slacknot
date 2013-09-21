@@ -17,7 +17,7 @@ class ProblemsController < ApplicationController
   end
 
   def create
-    @problem = Problem.new(problem_params)
+    @problem = @assignment.problems.new(problem_params)
 
     respond_to do |format|
       if @problem.save

@@ -7,6 +7,7 @@ class KlassesController < ApplicationController
   end
 
   def show
+    @assignments = @klass.assignments
   end
 
   def new

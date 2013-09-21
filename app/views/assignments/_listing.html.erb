@@ -1,12 +1,11 @@
-<h1>Listing assignments</h1>
-
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Assigned on</th>
-      <th>Due on</th>
-      <th>Percent completed</th>
+      <th>Assigned</th>
+      <th>Due</th>
+      <th>Time Elapsed</th>
+      <th>Completed</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,7 +18,8 @@
         <td><%= assignment.name %></td>
         <td><%= assignment.assigned_on %></td>
         <td><%= assignment.due_on %></td>
-        <td><%= assignment.percent_completed %></td>
+        <td><%= assignment.time_elapsed.strftime '%H:%M:%S' %></td>
+        <td><%= assignment.completed %> %</td>
         <td>
           <%= link_to 'Show', user_klass_assignment_path(@user, @klass, assignment) %>
         </td>
@@ -34,7 +34,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Assignment', new_user_klass_assignment_path(@user, @klass) %>

@@ -2,6 +2,10 @@
   <%= @klass.name %>
 </h1>
 
+<h2>Assignments</h2>
+
+<%= render 'assignments/listing' %>
+
 <%= link_to 'New Assignment', new_user_klass_assignment_path(@user, @klass) %> |
 <%= link_to 'Edit', edit_user_klass_path(@user, @klass) %> |
 <%= link_to 'Back', user_klasses_path(@user) %>

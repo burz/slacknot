@@ -5,8 +5,8 @@ Slacknot::Application.routes.draw do
 
   resources :users, only: [] do
     resources :klasses do
-      resources :assignments do
-        resources :problems
+      resources :assignments, except: [:index] do
+        resources :problems, except: [:index]
       end
     end
   end

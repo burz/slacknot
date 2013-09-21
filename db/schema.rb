@@ -17,13 +17,12 @@ ActiveRecord::Schema.define(version: 20130921012809) do
     t.string   "name"
     t.date     "assigned_on"
     t.date     "due_on"
-    t.integer  "percent_completed"
-    t.integer  "klasses_id"
+    t.integer  "klass_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "assignments", ["klasses_id"], name: "index_assignments_on_klasses_id"
+  add_index "assignments", ["klass_id"], name: "index_assignments_on_klass_id"
 
   create_table "klasses", force: true do |t|
     t.string   "name"
@@ -39,17 +38,23 @@ ActiveRecord::Schema.define(version: 20130921012809) do
     t.text     "text"
     t.text     "latex"
     t.text     "notes"
-    t.boolean  "completed",  default: false
+    t.boolean  "completed",     default: false
+    t.integer  "assignment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "problems", ["assignment_id"], name: "index_problems_on_assignment_id"
+
   create_table "time_intervals", force: true do |t|
     t.datetime "start"
     t.datetime "end"
+    t.integer  "problem_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "time_intervals", ["problem_id"], name: "index_time_intervals_on_problem_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
