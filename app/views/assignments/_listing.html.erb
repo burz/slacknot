@@ -18,7 +18,7 @@
         <td><%= assignment.name %></td>
         <td><%= assignment.assigned_on %></td>
         <td><%= assignment.due_on %></td>
-        <td><%= assignment.time_elapsed.strftime '%H:%M:%S' %></td>
+        <td><%= time_hms assignment.time_elapsed %></td>
         <td><%= assignment.completed %> %</td>
         <td>
           <%= link_to 'Show', user_klass_assignment_path(@user, @klass, assignment) %>

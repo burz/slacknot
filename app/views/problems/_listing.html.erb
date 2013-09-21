@@ -14,7 +14,7 @@
     <% @problems.each do |problem| %>
       <tr>
         <td>Problem number</td>
-        <td><%= problem.time_elapsed.strftime '%H:%M:%S' %></td>
+        <td><%= time_hms problem.time_elapsed %></td>
         <td><%= problem.completed %></td>
         <td>
           <%= link_to 'Show', user_klass_assignment_problem_path(
