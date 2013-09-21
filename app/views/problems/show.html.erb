@@ -4,11 +4,6 @@
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @problem.text %>
-</p>
-
-<p>
   <strong>Latex:</strong>
   <%= @problem.latex %>
 </p>
@@ -27,8 +22,6 @@
   <strong>Completed:</strong>
   <%= @problem.completed %>
 </p>
-
-
 
 <%= link_to 'Edit', edit_user_klass_assignment_problem_path(
       @user, @klass, @assignment, @problem) %> |

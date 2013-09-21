@@ -26,11 +26,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
-
-  <div class="field">
     <%= f.label :latex %><br>
     <%= f.text_area :latex %>
   </div>
@@ -45,10 +40,27 @@
     <%= f.check_box :completed %>
   </div>
 
+  <script type="text/javascript">
+    function show_button()
+    {
+      $('#preview-frame').css('display', '');
+      $('#preview-content').attr( 'src',
+        '<%= user_klass_assignment_problem_view_path(
+          @user, @klass, @assignment, @problem) %>'
+      );
+    }
+  </script>
+
+  <button type="button" id="preview-button" onclick="show_button()">Preview</button>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<div id="preview-frame" style="display: none; width: 750px;">
+  <iframe id="preview-content" src="" style="width: 100%"></iframe>
+</div>
 
 <%= link_to 'Show', user_klass_assignment_problem_path(
       @user, @klass, @assignment, @problem) %> |

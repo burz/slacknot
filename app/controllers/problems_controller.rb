@@ -23,11 +23,10 @@ class ProblemsController < ApplicationController
     render nothing: true
   end
 
-  def test
-    @title = 'lolcat base 1: reaffirming kitty softness'
-    @author = 'Mad max'
+  def view
+    @problem = @assignment.problems.find params[:problem_id]
 
-    render layout: 'submission', formats: [:pdf]
+    render layout: 'preview', formats: [:pdf]
   end
 
   def create
@@ -47,7 +46,7 @@ class ProblemsController < ApplicationController
   def update
     respond_to do |format|
       if @problem.update(problem_params)
-        format.html { redirect_to user_klass_assignment_problem_path(
+        format.html { redirect_to edit_user_klass_assignment_problem_path(
                           @user, @klass, @assignment, @problem),
                         notice: 'Problem was successfully updated.' }
       else
@@ -67,12 +66,12 @@ class ProblemsController < ApplicationController
   private
     def set_user_klass_assignment
       @user = User.find params[:user_id]
-      @klass = Klass.find params[:klass_id]
-      @assignment = Assignment.find params[:assignment_id]
+      @klass = @user.klasses.find params[:klass_id]
+      @assignment = @klass.assignments.find params[:assignment_id]
     end
 
     def set_problem
-      @problem = Problem.find(params[:id])
+      @problem = @assignment.problems.find params[:id]
     end
 
     def problem_params

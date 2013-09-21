@@ -3,11 +3,9 @@
 \usepackage{amssymb}
 \usepackage[margin=1in]{geometry}
 
-\title{<%= @assignment.name %>}
-
-\author{<%= @user.email %>}
-
 \begin{document}
+
+\pagenumbering{gobble}
 
 <%= yield %>
 

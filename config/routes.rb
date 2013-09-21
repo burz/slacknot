@@ -9,8 +9,9 @@ Slacknot::Application.routes.draw do
       resources :assignments, except: [:index] do
         resources :problems, except: [:index] do
           post 'time'
-          get 'test'
+          get 'view'
         end
+        get 'build'
       end
     end
   end

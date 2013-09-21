@@ -17,6 +17,21 @@
 
 <%= render 'problems/listing' %>
 
+<script>
+  function build_pdf()
+  {
+    $('#pdf-canvas').css('display', '');
+    $('#pdf-frame').attr('src', '<%= user_klass_assignment_build_path(
+      @user, @klass, @assignment) %>');
+  }
+</script>
+
+<button type="button" onclick="build_pdf()">Build</button>
+
+<div id="pdf-canvas" style="display: none; width: 750px;">
+  <iframe id="pdf-frame" src="" style="width: 100%;"></iframe>
+</div>
+
 <%= link_to 'Add problem',
       new_user_klass_assignment_problem_path(@user, @klass, @assignment) %> |
 <%= link_to 'Edit', edit_user_klass_assignment_path(@user, @klass, @assignment) %> |

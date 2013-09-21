@@ -18,7 +18,7 @@ class KlassesController < ApplicationController
   end
 
   def create
-    @klass = Klass.new(klass_params)
+    @klass = @user.klasses.new klass_params
 
     respond_to do |format|
       if @klass.save
@@ -54,7 +54,7 @@ class KlassesController < ApplicationController
     end
 
     def set_klass
-      @klass = Klass.find(params[:id])
+      @klass = @user.klasses.find(params[:id])
     end
 
     def klass_params

@@ -1,0 +1,7 @@
+\maketitle
+
+<% @problems.each do |problem| %>
+  \subsection*{<%= problem.prompt %>}
+
+  <%= problem.latex %>
+<% end %>

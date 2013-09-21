@@ -13,6 +13,13 @@ class AssignmentsController < ApplicationController
   def edit
   end
 
+  def build
+    @assignment = @klass.assignments.find params[:assignment_id]
+    @problems = @assignment.problems
+
+    render layout: 'submission', formats: [:pdf]
+  end
+
   def create
     @assignment = @klass.assignments.new assignment_params
 
@@ -47,7 +54,7 @@ class AssignmentsController < ApplicationController
   private
     def set_user_klass
       @user = User.find params[:user_id]
-      @klass = Klass.find params[:klass_id]
+      @klass = @user.klasses.find params[:klass_id]
     end
 
     def set_assignment
