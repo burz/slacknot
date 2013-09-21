@@ -33,6 +33,7 @@ group :doc do
 end
 
 gem 'devise'
+gem 'gruff'
 
 group :development do
   gem 'better_errors'

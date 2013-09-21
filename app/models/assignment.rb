@@ -4,7 +4,7 @@ class Assignment < ActiveRecord::Base
 
   def time_elapsed
     if problems.any?
-      problems.map { |p| p.time_elapsed }.inject(:+)
+      Time.new(problems.map { |p| p.time_elapsed.to_i }.inject(:+))
     else
       Time.new(0)
     end

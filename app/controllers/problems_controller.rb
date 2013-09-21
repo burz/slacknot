@@ -1,6 +1,7 @@
 class ProblemsController < ApplicationController
   before_action :set_user_klass_assignment
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, only: [:time]
 
   def index
     @problems = Problem.all
@@ -16,13 +17,19 @@ class ProblemsController < ApplicationController
   def edit
   end
 
+  def time
+    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    puts JSON.parse(request.body.read)
+    render nothing: true
+  end
+
   def create
     @problem = @assignment.problems.new(problem_params)
 
     respond_to do |format|
       if @problem.save
-        format.html { redirect_to user_klass_assignment_problem_path(
-                          @user, @klass, @assignment, @problem),
+        format.html { redirect_to user_klass_assignment_path(
+                          @user, @klass, @assignment),
                         notice: 'Problem was successfully created.' }
       else
         format.html { render action: 'new' }
