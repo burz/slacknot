@@ -1,0 +1,14 @@
+\documentclass{amsart}
+
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+
+\title{<%= @title %>}
+
+\author{<%= @author %>}
+
+\begin{document}
+
+<%= yield %>
+
+\end{document}

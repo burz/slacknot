@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20130921012809) do
   add_index "klasses", ["user_id"], name: "index_klasses_on_user_id"
 
   create_table "problems", force: true do |t|
+    t.text     "label"
     t.text     "prompt"
     t.text     "text"
     t.text     "latex"

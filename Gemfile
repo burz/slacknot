@@ -34,6 +34,7 @@ end
 
 gem 'devise'
 gem 'gruff'
+gem 'rails-latex'
 
 group :development do
   gem 'better_errors'

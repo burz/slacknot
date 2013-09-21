@@ -23,6 +23,13 @@ class ProblemsController < ApplicationController
     render nothing: true
   end
 
+  def test
+    @title = 'lolcat base 1: reaffirming kitty softness'
+    @author = 'Mad max'
+
+    render layout: 'submission', formats: [:pdf]
+  end
+
   def create
     @problem = @assignment.problems.new(problem_params)
 
