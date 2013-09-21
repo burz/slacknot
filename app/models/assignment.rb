@@ -17,4 +17,12 @@ class Assignment < ActiveRecord::Base
       100
     end
   end
+
+  def problem_time
+    if problems.any?
+      [problems.map { |p| p.time_elapsed.to_i }.inject(:+), problems.count]
+    else
+      [0, 0]
+    end
+  end
 end

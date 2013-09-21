@@ -4,7 +4,6 @@ Slacknot::Application.routes.draw do
   devise_for :users
 
   resources :users, only: [] do
-    get 'graphs', to: 'graphs#index'
     resources :klasses do
       resources :assignments, except: [:index] do
         resources :problems, except: [:index] do
@@ -14,5 +13,10 @@ Slacknot::Application.routes.draw do
         get 'build'
       end
     end
+
+    get 'graphs', to: 'graphs#index'
+    get 'time_per_class', to: 'graphs#time_per_class'
+    get 'average_problem_time_per_class', to: 'graphs#average_problem_time_per_class'
+    get 'average_time_per_assignment', to: 'graphs#average_time_per_assignment'
   end
 end

@@ -1,1 +1,30 @@
-graphs here!
+<ul>
+  <li>
+    <button type="button" data-show="#time-per-class">Time per Class</button>
+  </li>
+  <li>
+    <button type="button" data-show="#time-per-problem">Time per Problem</button>
+  </li>
+  <li>
+    <button type="button" data-show="#time-per-assignment">Time per Assignment</button>
+  </li>
+</ul>
+
+<script>
+  $('[data-show]').on('click', function () {
+    $('.graph').hide();
+    $($(this).attr('data-show')).show();
+  });
+</script>
+
+<div class="graph" id="time-per-class">
+  <%= image_tag user_time_per_class_path(@user) %>
+</div>
+
+<div class="graph" id="time-per-problem" style="display: none;">
+  <%= image_tag user_average_problem_time_per_class_path(@user) %>
+</div>
+
+<div class="graph" id="time-per-assignment" style="display: none;">
+  <%= image_tag user_average_time_per_assignment_path(@user) %>
+</div>
