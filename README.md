@@ -12,5 +12,5 @@ rails 4.0.
 rails s
 ```
 
-The server will run at http://localhost:3000
+The server will run at [http://localhost:3000](http://localhost:3000)
 
