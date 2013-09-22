@@ -1,7 +1,6 @@
 \documentclass{amsart}
 
-\usepackage{amssymb}
-\usepackage[margin=1in]{geometry}
+<%= @assignment.preamble %>
 
 \begin{document}
 

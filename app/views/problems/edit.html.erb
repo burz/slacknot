@@ -32,13 +32,31 @@
 
   <div class="uk-grid">
     <div class="field uk-width-4-6">
-      <%= f.label :latex %><br>
-      <%= f.text_area :latex, style: 'width: 95%; height: 270px;' %>
+      <button class="uk-button" type="button" data-show="#latex">
+        LaTeX
+      </button>
+      <button class="uk-button" type="button" data-show="#preamble">
+        Preamble
+      </button>
+
+      <%= f.text_area :latex, style: 'width: 95%; height: 265px;', id: 'latex',
+            class: 'tex' %>
+
+      <textarea id="preamble" name="preamble" class="tex" style="width: 95%; height: 265px; display: none;"><%= @assignment.preamble %></textarea>
     </div>
 
+    <script>
+      $('[data-show]').on('click', function () {
+        $('.tex').hide();
+        $($(this).attr('data-show')).show();
+      });
+    </script>
+
     <div class="uk-width-2-6">
-      <%= f.label :prompt %><br>
-      <%= f.text_area :prompt, style: 'width: 95%; height: 270px;' %>
+      <div style="height: 30px;">
+        Prompt
+      </div>
+      <%= f.text_area :prompt, style: 'width: 95%; height: 265px;' %>
     </div>
   </div>
 

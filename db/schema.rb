@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922100000) do
+ActiveRecord::Schema.define(version: 20130922115411) do
 
   create_table "assignments", force: true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20130922100000) do
     t.integer  "klass_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "preamble",    default: "\\usepackage[margin=1in]{geometry}"
   end
 
   add_index "assignments", ["klass_id"], name: "index_assignments_on_klass_id"
