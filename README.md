@@ -12,7 +12,8 @@ Author: Anthony Burzillo
 *****
 
 In order to run you must have Ruby 2.0.0 installed as well as
-rails 4.0.
+rails 4.0. For PDF building, the server must have LaTeX
+installed.
 
 ```
 rails s
