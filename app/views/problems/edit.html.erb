@@ -5,6 +5,16 @@
 <h1>Editing problem</h1>
 
 <%= form_for [@user, @klass, @assignment, @problem], html: { class: 'uk-form' } do |f| %>
+  <script>
+    $('.uk-form').submit(function () {
+      $.post($(this).attr('action'), $(this).serialize(), function (res) {
+        console.log(res);
+      });
+
+      return false;
+    });
+  </script>
+
   <% if @problem.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -74,7 +84,9 @@
 <script>
   function show_button()
   {
-    $('#preview-content').attr( 'src',
+    $('.uk-form').submit();
+
+    $('#preview-content').attr('src',
       '<%= user_klass_assignment_problem_view_path(
         @user, @klass, @assignment, @problem) %>'
     );

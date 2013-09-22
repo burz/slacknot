@@ -1,4 +1,4 @@
-\subsection*{<%= LatexToPdf.escape_latex @problem.label %>.
-  <%= LatexToPdf.escape_latex @problem.prompt %>}
+\subsection*{<%= raw @problem.label %>.
+  <%= raw @problem.prompt %>}
 
-<%= LatexToPdf.escape_latex @problem.latex %>
+<%= raw @problem.latex %>

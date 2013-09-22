@@ -51,7 +51,7 @@ class ProblemsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @problem.update(problem_params)
+      if @problem.update problem_params
         if @problem.completed
           format.html { redirect_to user_klass_assignment_problem_path(
                             @user, @klass, @assignment, @problem),
