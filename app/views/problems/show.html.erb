@@ -23,6 +23,7 @@
   <%= @problem.completed %>
 </p>
 
-<%= link_to 'Edit', edit_user_klass_assignment_problem_path(
-      @user, @klass, @assignment, @problem) %> |
-<%= link_to 'Back', user_klass_assignment_path(@user, @klass, @assignment) %>
+<%= link_to 'Work on Problem', edit_user_klass_assignment_problem_path(
+      @user, @klass, @assignment, @problem), class: 'uk-button' %>
+<%= link_to 'Back', user_klass_assignment_path(@user, @klass, @assignment),
+      class: 'uk-button' %>

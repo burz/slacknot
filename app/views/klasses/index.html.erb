@@ -1,30 +1,39 @@
-<h1>Listing classes</h1>
+<div align="center">
+  <h1>My Classes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @klasses.each do |klass| %>
+  <table class="uk-table uk-table-striped">
+    <thead>
       <tr>
-        <td><%= klass.name %></td>
-        <td><%= link_to 'Show', user_klass_path(@user, klass) %></td>
-        <td><%= link_to 'Edit', edit_user_klass_path(@user, klass) %></td>
-        <td>
-          <%= link_to 'Destroy', user_klass_path(@user, klass),
-                method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @klasses.each do |klass| %>
+        <tr>
+          <td><%= klass.name %></td>
+          <td>
+            <%= link_to 'View Class', user_klass_path(@user, klass), class: 'uk-button' %>
+          </td>
+          <td>
+            <%= link_to 'Edit Class', edit_user_klass_path(@user, klass),
+                  class: 'uk-button' %>
+          </td>
+          <td>
+            <%= link_to 'Delete Class', user_klass_path(@user, klass),
+                  method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New class', new_user_klass_path(@user) %>
+  <br>
+
+  <button type="button" class="uk-button-primary">
+    <%= link_to 'New class', new_user_klass_path(@user) %>
+  </button>
+</div>

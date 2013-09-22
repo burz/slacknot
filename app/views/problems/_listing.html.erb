@@ -1,8 +1,4 @@
-<style>
-  td a, td a:visited { color: white; }
-</style>
-
-<table>
+<table class="uk-table">
   <thead>
     <tr>
       <th></th>
@@ -23,17 +19,17 @@
         <td><font color="white">Problem number</font></td>
         <td><font color="white"><%= time_hms problem.time_elapsed %></font></td>
         <td>
-          <%= link_to 'Show', user_klass_assignment_problem_path(
-                @user, @klass, @assignment, problem) %>
+          <%= link_to 'Details', user_klass_assignment_problem_path(
+                @user, @klass, @assignment, problem), class: 'uk-button' %>
         </td>
         <td>
-          <%= link_to 'Edit', edit_user_klass_assignment_problem_path(
-                @user, @klass, @assignment, problem) %>
+          <%= link_to 'Work on Problem', edit_user_klass_assignment_problem_path(
+                @user, @klass, @assignment, problem), class: 'uk-button' %>
         </td>
         <td>
-          <%= link_to 'Destroy', user_klass_assignment_problem_path(
+          <%= link_to 'Delete Problem', user_klass_assignment_problem_path(
                   @user, @klass, @assignment, problem),
-                method: :delete, data: { confirm: 'Are you sure?' } %>
+                method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button' %>
         </td>
       </tr>
     <% end %>

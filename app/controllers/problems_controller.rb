@@ -52,9 +52,15 @@ class ProblemsController < ApplicationController
   def update
     respond_to do |format|
       if @problem.update(problem_params)
-        format.html { redirect_to edit_user_klass_assignment_problem_path(
-                          @user, @klass, @assignment, @problem),
-                        notice: 'Problem was successfully updated.' }
+        if @problem.completed
+          format.html { redirect_to user_klass_assignment_problem_path(
+                            @user, @klass, @assignment, @problem),
+                          notice: 'Problem was successfully updated.' }
+        else
+          format.html { redirect_to edit_user_klass_assignment_problem_path(
+                            @user, @klass, @assignment, @problem),
+                          notice: 'Problem was successfully updated.' }
+        end
       else
         format.html { render action: 'edit' }
       end

@@ -1,48 +1,56 @@
-<p>
-  <strong>Name:</strong>
-  <%= @assignment.name %>
-</p>
+<div align="center">
+  <h1><%= @assignment.name %></h1>
 
-<p>
-  <strong>Assigned on:</strong>
-  <%= @assignment.assigned_on %>
-</p>
+  <p>
+    <strong>Assigned on:</strong>
+    <%= @assignment.assigned_on %>
+  </p>
 
-<p>
-  <strong>Due on:</strong>
-  <%= @assignment.due_on %>
-</p>
+  <p>
+    <strong>Due on:</strong>
+    <%= @assignment.due_on %>
+  </p>
 
-<p>
-  <strong>Time elapsed:</strong>
-  <%= time_hms @assignment.time_elapsed %>
-</p>
+  <p>
+    <strong>Time elapsed:</strong>
+    <%= time_hms @assignment.time_elapsed %>
+  </p>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @assignment.completed %> %
-</p>
+  <p>
+    <strong>Completed:</strong>
+    <%= @assignment.completed %> %
+  </p>
 
-<h2>Problems</h2>
+  <h2>Problems</h2>
 
-<%= render 'problems/listing' %>
+  <%= render 'problems/listing' %>
 
-<script>
-  function build_pdf()
-  {
-    $('#pdf-canvas').css('display', '');
-    $('#pdf-frame').attr('src', '<%= user_klass_assignment_build_path(
-      @user, @klass, @assignment) %>');
-  }
-</script>
+  <br />
 
-<button type="button" onclick="build_pdf()">Build</button>
+  <script>
+    function build_pdf()
+    {
+      $('#pdf-frame').attr('src', '<%= user_klass_assignment_build_path(
+        @user, @klass, @assignment) %>');
+    }
+  </script>
 
-<div id="pdf-canvas" style="display: none; width: 750px;">
-  <iframe id="pdf-frame" src="" style="width: 100%;"></iframe>
+  <button type="button" onclick="build_pdf()" class="uk-button-success"
+    data-uk-modal="{target: '#pdf-modal'}">
+    Build
+  </button>
+
+  <div id="pdf-modal" class="uk-modal">
+    <a class="uk-modal-close uk-close"></a>
+
+    <iframe id="pdf-frame" src="" style="top: 10px; width: 100%; height: 500px;"></iframe>
+  </div>
+
+  <button type="button" class="uk-button-primary">
+    <%= link_to 'Add problem',
+          new_user_klass_assignment_problem_path(@user, @klass, @assignment)  %>
+  </button>
+  <%= link_to 'Edit Assignment', edit_user_klass_assignment_path(
+        @user, @klass, @assignment), class: 'uk-button' %>
+  <%= link_to 'Back', user_klass_path(@user, @klass), class: 'uk-button' %>
 </div>
-
-<%= link_to 'Add problem',
-      new_user_klass_assignment_problem_path(@user, @klass, @assignment) %> |
-<%= link_to 'Edit', edit_user_klass_assignment_path(@user, @klass, @assignment) %> |
-<%= link_to 'Back', user_klass_path(@user, @klass) %>

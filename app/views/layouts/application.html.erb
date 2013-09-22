@@ -29,8 +29,8 @@
 
     <div class"user-nav" align="right">
       <% if user_signed_in? %>
-        <%= link_to 'My classes', user_klasses_path(current_user) %> |
-        <%= link_to 'Graphs', user_graphs_path(current_user) %>
+        <%= link_to 'My classes', user_klasses_path(current_user), class: 'uk-button' %>
+        <%= link_to 'Graphs', user_graphs_path(current_user), class: 'uk-button' %>
       <% end %>
     </div>
 

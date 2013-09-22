@@ -1,4 +1,4 @@
-<%= form_for [@user, @klass, @assignment, @problem] do |f| %>
+<%= form_for [@user, @klass, @assignment, @problem], html: { class: 'uk-form' } do |f| %>
   <% if @problem.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -14,17 +14,23 @@
     </div>
   <% end %>
 
-  <div class="field" id="prompt">
-    <%= f.label :prompt %><br>
-    <%= f.text_area :prompt %>
+  <div class="uk-grid">
+    <div class="uk-width-1-2">
+      <%= f.label :prompt %><br>
+      <%= f.text_area :prompt, style: 'width: 95%; height: 200px;' %>
+    </div>
+
+    <div class="uk-width-1-2">
+      <%= f.label :notes %><br>
+      <%= f.text_area :notes, style: 'width: 95%; height: 200px;' %>
+    </div>
   </div>
 
-  <div class="field" id="notes">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </div>
+  <br />
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Problem', class: 'uk-button-primary' %>
   </div>
 <% end %>
+
+<br />
