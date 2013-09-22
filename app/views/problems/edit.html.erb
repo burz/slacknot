@@ -2,7 +2,7 @@
   start_time_interval('<%= user_klass_assignment_problem_time_path(@user, @klass, @assignment, @problem) %>');
 </script>
 
-<h1>Editing problem</h1>
+<h1 align="center">Working on Problem <%= @problem.label %></h1>
 
 <%= form_for [@user, @klass, @assignment, @problem], html: { class: 'uk-form' } do |f| %>
   <script>
