@@ -2,7 +2,7 @@ class Problem < ActiveRecord::Base
   belongs_to :assignment
   has_many :time_intervals
 
-  validates :prompt, presence: true
+  validates :label, :prompt, presence: true
 
   def time_elapsed
     if time_intervals.any?

@@ -87,6 +87,6 @@ class ProblemsController < ApplicationController
     end
 
     def problem_params
-      params.require(:problem).permit(:prompt, :text, :latex, :notes, :completed)
+      params.require(:problem).permit :prompt, :text, :latex, :notes, :completed, :label
     end
 end

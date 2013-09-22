@@ -1,7 +1,7 @@
 <table class="uk-table">
   <thead>
     <tr>
-      <th></th>
+      <th>Label</th>
       <th>Time elapsed</th>
       <th></th>
       <th></th>
@@ -12,11 +12,11 @@
   <tbody>
     <% @problems.each do |problem| %>
       <% if problem.completed %>
-        <tr bgcolor="green">
+        <tr bgcolor="#688A08">
       <% else %>
-        <tr bgcolor="red">
+        <tr bgcolor="#FE2E2E">
       <% end %>
-        <td><font color="white">Problem number</font></td>
+        <td><font color="white"><%= problem.label %></font></td>
         <td><font color="white"><%= time_hms problem.time_elapsed %></font></td>
         <td>
           <%= link_to 'Details', user_klass_assignment_problem_path(
