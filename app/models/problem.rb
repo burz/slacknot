@@ -2,6 +2,8 @@ class Problem < ActiveRecord::Base
   belongs_to :assignment
   has_many :time_intervals
 
+  validates :prompt, presence: true
+
   def time_elapsed
     if time_intervals.any?
       time_intervals.map { |t| (t.end - t.start).to_i }.inject(:+)

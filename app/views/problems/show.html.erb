@@ -1,29 +1,51 @@
-<p>
-  <strong>Prompt:</strong>
-  <%= @problem.prompt %>
-</p>
+<div align="center">
+  <p>
+    <strong>Prompt:</strong>
+    <%= @problem.prompt %>
+  </p>
 
-<p>
-  <strong>Latex:</strong>
-  <%= @problem.latex %>
-</p>
+  <p>
+    <strong>Latex:</strong>
+    <%= @problem.latex %>
+  </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @problem.notes %>
-</p>
+  <p>
+    <strong>Notes:</strong>
+    <%= @problem.notes %>
+  </p>
 
-<p>
-  <strong>Time Elapsed</strong>
-  <%= time_hms @problem.time_elapsed %>
-</p>
+  <p>
+    <strong>Time Elapsed</strong>
+    <%= time_hms @problem.time_elapsed %>
+  </p>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @problem.completed %>
-</p>
+  <p>
+    <strong>Completed:</strong>
+    <%= @problem.completed %>
+  </p>
 
-<%= link_to 'Work on Problem', edit_user_klass_assignment_problem_path(
-      @user, @klass, @assignment, @problem), class: 'uk-button' %>
-<%= link_to 'Back', user_klass_assignment_path(@user, @klass, @assignment),
-      class: 'uk-button' %>
+  <script>
+    function show_button()
+    {
+      $('#preview-content').attr( 'src',
+        '<%= user_klass_assignment_problem_view_path(
+          @user, @klass, @assignment, @problem) %>'
+      );
+    }
+  </script>
+
+  <button type="button" id="preview-button" onclick="show_button()"
+    class="uk-button-primary" data-uk-modal="{target: '#pdf-modal'}">
+    Preview
+  </button>
+  <%= link_to 'Work on Problem', edit_user_klass_assignment_problem_path(
+        @user, @klass, @assignment, @problem), class: 'uk-button' %>
+  <%= link_to 'Back', user_klass_assignment_path(@user, @klass, @assignment),
+        class: 'uk-button' %>
+</div>
+
+<div id="pdf-modal" class="uk-modal">
+  <a class="uk-modal-close uk-close"></a>
+
+  <iframe id="preview-content" src="" style="width: 100%; height: 500px"></iframe>
+</div>

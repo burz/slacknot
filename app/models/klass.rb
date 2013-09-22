@@ -2,6 +2,8 @@ class Klass < ActiveRecord::Base
   belongs_to :user
   has_many :assignments
 
+  validates :name, presence: true
+
   def time_elapsed
     if assignments.any?
       assignments.map { |a| a.time_elapsed }.inject(:+)

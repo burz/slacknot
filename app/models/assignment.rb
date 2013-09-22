@@ -1,6 +1,17 @@
+class DueDateOrderValidator < ActiveModel::Validator
+  def validate(record)
+    if record.due_on < record.assigned_on
+      record.errors[:base] << 'The due date cannot come before the assigned on date'
+    end
+  end
+end
+
 class Assignment < ActiveRecord::Base
   belongs_to :klass
   has_many :problems
+
+  validates :name, presence: true
+  validates_with DueDateOrderValidator
 
   def time_elapsed
     if problems.any?
