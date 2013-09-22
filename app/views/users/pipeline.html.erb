@@ -1,0 +1,28 @@
+<div align="center">
+  <h1>Your Pipeline</h1>
+
+  <table class="uk-table uk-table-striped">
+    <thead>
+      <th>Assignment</th>
+      <th>Problem</th>
+      <th>Due on</th>
+      <th>Time elapsed</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @entries.each do |entry| %>
+        <tr>
+          <td><%= entry.assignment.name %></td>
+          <td><%= entry.label %></td>
+          <td><%= entry.assignment.due_on %></td>
+          <td><%= time_hms entry.time_elapsed %></td>
+          <td>
+            <%= link_to 'Work on Problem', edit_user_klass_assignment_problem_path(
+                  entry.assignment.klass.user, entry.assignment.klass,
+                  entry.assignment, entry), class: 'uk-button' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

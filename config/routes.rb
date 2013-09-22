@@ -14,6 +14,7 @@ Slacknot::Application.routes.draw do
       end
     end
 
+    get 'pipeline', to: 'users#pipeline'
     get 'graphs', to: 'graphs#index'
     get 'time_per_class', to: 'graphs#time_per_class'
     get 'average_problem_time_per_class', to: 'graphs#average_problem_time_per_class'
