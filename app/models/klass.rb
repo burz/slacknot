@@ -28,4 +28,20 @@ class Klass < ActiveRecord::Base
       0
     end
   end
+
+  def time_per_day_of_week
+    if assignments.any?
+      times = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+
+      assignments.each do |a|
+        a.time_per_day_of_week.each_with_index do |t, i|
+          times[i][0] += t[0]
+          times[i][1] += t[1]
+        end
+      end
+      times
+    else
+      [[0, 0]] * 7
+    end
+  end
 end

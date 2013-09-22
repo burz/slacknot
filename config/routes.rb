@@ -18,5 +18,6 @@ Slacknot::Application.routes.draw do
     get 'time_per_class', to: 'graphs#time_per_class'
     get 'average_problem_time_per_class', to: 'graphs#average_problem_time_per_class'
     get 'average_time_per_assignment', to: 'graphs#average_time_per_assignment'
+    get 'average_time_per_day_of_week', to: 'graphs#average_time_per_day_of_week'
   end
 end

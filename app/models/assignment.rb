@@ -25,4 +25,20 @@ class Assignment < ActiveRecord::Base
       [0, 0]
     end
   end
+
+  def time_per_day_of_week
+    if problems.any?
+      times = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+
+      problems.each do |p|
+        p.time_per_day_of_week.each_with_index do |t, i|
+          times[i][0] += t[0]
+          times[i][1] += t[1]
+        end
+      end
+      times
+    else
+      [[0, 0]] * 7
+    end
+  end
 end

@@ -1,12 +1,21 @@
 <ul>
   <li>
-    <button type="button" data-show="#time-per-class">Time per Class</button>
+    <button class="site-button" type="button" data-show="#time-per-class">
+      Time per Class
+    </button>
   </li>
   <li>
-    <button type="button" data-show="#time-per-problem">Time per Problem</button>
+    <button class="site-button" type="button" data-show="#time-per-problem">
+      Time per Problem
+    </button>
   </li>
   <li>
-    <button type="button" data-show="#time-per-assignment">Time per Assignment</button>
+    <button class='site-button' type="button" data-show="#time-per-assignment">
+      Time per Assignment
+    </button>
+  </li>
+  <li>
+    <button type="button" data-show="#time-per-day">Time per Day</button>
   </li>
 </ul>
 
@@ -27,4 +36,8 @@
 
 <div class="graph" id="time-per-assignment" style="display: none;">
   <%= image_tag user_average_time_per_assignment_path(@user) %>
+</div>
+
+<div class="graph" id="time-per-day" style="display: none;">
+  <%= image_tag user_average_time_per_day_of_week_path(@user) %>
 </div>
