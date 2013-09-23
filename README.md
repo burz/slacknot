@@ -5,7 +5,7 @@ slacknot! is an IDE for homework that keeps track of exactly how
 long you spend on each problem in order to gain interesting
 information about your study habits.
 
-slacknot! was built during the 36-hour hackathon HopHacks.
+slacknot! was built during the 36-hour hackathon HopHacks (release 1.0 is the result).
 
 Author: Anthony Burzillo
 
